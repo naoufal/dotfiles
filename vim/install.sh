@@ -16,6 +16,12 @@ else
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-# Install Plugins
+# Setup YouCompleteMe
+ln -s /usr/local/bin/mvim vim
+
+# Compile YouCompleteMe:
+~/.vim/bundle/YouCompleteMe/install.sh
+
+# Install Vundle Plugins
 vim +PluginInstall +qall
 
