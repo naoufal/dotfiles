@@ -47,6 +47,9 @@ brew cask install seil
 # Install Sketch
 brew cask install sketch
 
+# Install Framer Studio
+brew cask install framer-studio
+
 # Install Image Optim
 brew cask install imageoptim
 
