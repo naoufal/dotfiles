@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Install Package Managers
+# Create Bash Profile
+touch ~/.bash_profile
 
-# install Homebrew
+# Install Homebrew
 sh ~/dotfiles/homebrew/install.sh
 
-# Install Homebrew packages
+# Install Homebrew Packages
 sh ~/dotfiles/homebrew/packages.sh
+
+# Install Node
+sh ~/dotfiles/node/install.sh
+
+# Install NPM Packages
+sh ~/dotfiles/node/packages.sh
 
 # Setup Vim
 sh ~/dotfiles/vim/install.sh
-
