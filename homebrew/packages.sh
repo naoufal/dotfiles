@@ -35,6 +35,9 @@ brew cask install vagrant
 brew cask install google-chrome
 brew cask install google-hangouts
 
+#Install Google Music Manager
+brew cask install music-manager
+
 # Install Firefox
 brew cask install firefox
 
