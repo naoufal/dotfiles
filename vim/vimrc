@@ -124,12 +124,12 @@ nmap <leader>f :CtrlP<CR>
 " Map AG
 nmap <leader>F :Ag<space>
 
-" Tell Ag to use ack
-let g:agprg="/usr/local/bin/ack --column"
-
 " Set ignores
 set wildignore+=*/node_modules/*,*/lib-bower/*,*.min.js,*/public/*
 
 " No Swap File
 set noswapfile
+
+" No Backups
+set nowritebackup
 

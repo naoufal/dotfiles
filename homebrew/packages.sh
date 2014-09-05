@@ -18,6 +18,9 @@ brew install nginx
 # Install Postgres
 brew install postgresql
 
+# Install The Silver Searcher
+brew install the_silver_searcher
+
 # Install Homebrew Cask (To install DMGs)
 brew tap caskroom/cask
 brew install brew-cask
