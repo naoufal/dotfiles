@@ -9,6 +9,16 @@
 # Install Heroku
 brew install heroku-toolbelt
 
+# Install Git Autocomplete
+brew install git bash-completion
+cat <<EOT >>  ~/.bash_profile
+
+# Git Autocompletion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+EOT
+
 # Install Redis
 brew install redis
 
