@@ -10,6 +10,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
@@ -123,6 +124,9 @@ nmap <leader>f :CtrlP<CR>
 
 " Map AG
 nmap <leader>F :Ag<space>
+
+" Map NERDTree
+nmap <leader>s :NERDTree<CR>
 
 " Set ignores
 set wildignore+=*/node_modules/*,*/lib-bower/*,*.min.js,*/public/*
