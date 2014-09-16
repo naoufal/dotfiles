@@ -3,6 +3,12 @@
 # Create Bash Profile
 touch ~/.bash_profile
 
+# Install RVM
+sh ~/dotfiles/rvm/install.sh
+
+# Install Ruby Gems
+sh ~/dotfiles/rvm/gems.sh
+
 # Install Homebrew
 sh ~/dotfiles/homebrew/install.sh
 
