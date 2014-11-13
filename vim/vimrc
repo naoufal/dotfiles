@@ -11,6 +11,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
 Plugin 'godlygeek/tabular'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
@@ -136,4 +137,6 @@ set noswapfile
 
 " No Backups
 set nowritebackup
+" Add Mouse Support in Terminal
+set mouse=a
 
