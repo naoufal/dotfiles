@@ -58,6 +58,15 @@ var rightTwoThird = S.operation('move', {
   'height': 'screenSizeY'
 });
 
+// WINDOW HINT
+var windowHint = S.operation('hint', {
+  'characters' : 'HJKLGFDSA'
+});
+
+// APP SWITCHER
+// var appSwitch = S.operation('switch');
+
+
 // BINDINGS
 // ============================================================================
 S.bindAll({
@@ -68,5 +77,6 @@ S.bindAll({
   'l:ctrl;shift': rightThird,
   'l:alt;shift' : rightHalf,
   'l:cmd;shift' : rightTwoThird,
+  'space:shift' : windowHint
 });
 
