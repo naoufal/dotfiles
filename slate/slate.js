@@ -70,13 +70,13 @@ var windowHint = S.operation('hint', {
 // BINDINGS
 // ============================================================================
 S.bindAll({
-  'f:cmd;shift' : fullscreen,
-  'h:ctrl;shift': leftThird,
-  'h:alt;shift' : leftHalf,
-  'h:cmd;shift' : leftTwoThird,
-  'l:ctrl;shift': rightThird,
-  'l:alt;shift' : rightHalf,
-  'l:cmd;shift' : rightTwoThird,
-  'space:shift' : windowHint
+  'f:ctrl'     : fullscreen,
+  '1:ctrl,h'   : leftThird,
+  '2:ctrl,h'   : leftHalf,
+  '3:ctrl,h'   : leftTwoThird,
+  '1:ctrl,l'   : rightThird,
+  '2:ctrl,l'   : rightHalf,
+  '3:ctrl,l'   : rightTwoThird,
+  'space:ctrl' : windowHint
 });
 
