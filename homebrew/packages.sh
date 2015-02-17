@@ -19,6 +19,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 EOT
 
+# Install Brew Services
+brew tap gapple/services
+
 # Install Redis
 brew install redis
 
