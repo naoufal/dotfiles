@@ -1,57 +1,7 @@
+" General
+" =============================================================================
 set nocompatible  " Required
 filetype off      " Required
-
-set rtp+=~/.vim/bundle/Vundle.vim " Required
-call vundle#begin()               " Required
-
-" Plugins start here
-
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Raimondi/delimitMate'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-commentary'
-Plugin 'godlygeek/tabular'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ap/vim-css-color'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'tpope/vim-haml' " Does haml, sass and scss
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'goatslacker/mango.vim'
-Plugin 'croaker/mustang-vim'
-Plugin 'chriskempson/vim-tomorrow-theme'
-
-" Plugins end here
-
-call vundle#end()           " Required
-filetype plugin indent on   " Required
-
-" Plugin settings start here
-
-" Enable mouse in terminals
-if has('mouse')
-  set mouse=a
-endif
-
-" Show hard tabs and trailing whitespace.
-set list
-set listchars=tab:»·,trail:·
-
-" Set color scheme
-colorscheme mustang
-
-" Set syntax highlighting
-syntax on
-
-" Custom syntax highlighting
-autocmd BufNewFile,BufRead Gemfile set filetype=ruby
-autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
-autocmd BufNewFile,BufRead Berksfile set filetype=ruby
 
 " Set default font
 set guifont=Menlo:h13
@@ -62,23 +12,26 @@ set spell
 " Highlight the 80th column.
 set colorcolumn=80
 
+set scrolloff=1
+
 " Highlight all search matches.
 set hlsearch
 
-" Jump to search results while typing. Pressing enter actually jumps to the
-" result, pressing escape goes back to the cursor.
-set incsearch
+" Use relative line numbers
+set relativenumber
 
-" Perform case-insensitive searching when the search pattern contains only
-" lowercase letters.
-set ignorecase
-set smartcase
+" Add mouse support in terminal
+set mouse=a
 
-" Remove trailing spaces on save.
-autocmd BufWritePre * :%s/\s\+$//e
+" Make backspace work like normal apps
+set backspace=2
+set backspace=indent,eol,start
 
-" Load filetype plugins and indentation rules.
-filetype plugin indent on
+" No Swap File
+set noswapfile
+
+" No Backups
+set nowritebackup
 
 " Copy the indent from the previous line when starting a new line.
 " Automatically indent between curly braces and indent keywords.
@@ -111,32 +64,146 @@ set title
 " Disable beeping and visual bell (flashing the terminal window).
 set visualbell t_vb=
 
-" Set leader to , and remap , to \.
-noremap \ ,
-let mapleader = ","
-
-" Set keybindings below
-
-" Clear search result highlighting.
-nmap <leader>n :nohlsearch<CR>
-
-" Map CtrlP
-nmap <leader>f :CtrlP<CR>
-
-" Map AG
-nmap <leader>F :Ag<space>
-
-" Map NERDTree
-nmap <leader>s :NERDTree<CR>
-
-" Set ignores
-set wildignore+=*/node_modules/*,*/lib-bower/*,*.min.js,*/public/*
-
-" No Swap File
-set noswapfile
-
-" No Backups
-set nowritebackup
-" Add Mouse Support in Terminal
+" Enable mouse in terminals
 set mouse=a
 
+" Enable pasting vim content in other apps
+set clipboard=unnamed
+
+" Show hard tabs and trailing whitespace.
+set list
+set listchars=tab:»·,trail:·
+
+" Set syntax highlighting
+syntax on
+
+" Custom syntax highlighting
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead Berksfile set filetype=ruby
+autocmd BufNewFile,BufRead *.ios.js set filetype=javascript
+autocmd BufNewFile,BufRead *.es6 set filetype=javascript
+autocmd BufNewFile,BufRead *.m set filetype=objc
+
+" Jump to search results while typing. Pressing enter actually jumps to the
+" result, pressing escape goes back to the cursor.
+set incsearch
+
+" Perform case-insensitive searching when the search pattern contains only
+" lowercase letters.
+set ignorecase
+set smartcase
+
+" Remove trailing spaces on save.
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Load filetype plugins and indentation rules.
+filetype plugin indent on
+
+" Set leader to , and remap , to \.
+noremap \ ,
+let mapleader = ' '
+
+" Plugins
+" =============================================================================
+call plug#begin('~/.vim/bundle')
+
+Plug 'ap/vim-css-color'
+Plug 'bling/vim-airline'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
+Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+
+" Languages
+Plug 'b4winckler/vim-objc'
+Plug 'digitaltoad/vim-jade'
+Plug 'fatih/vim-go'
+Plug 'goatslacker/mango.vim'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-haml'
+
+" Themes
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
+" Goyo and Limelight
+" =============================================================================
+function! GoyoBefore()
+  Limelight
+endfunction
+
+function! GoyoAfter()
+  Limelight!
+endfunction
+
+let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
+let g:limelight_conceal_ctermfg = 'DarkGray'
+nnoremap <Leader>L :Limelight!!<CR>
+nnoremap <Leader><Space> :Goyo<CR>
+
+" Airline
+" =============================================================================
+set laststatus=2
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='tomorrow'
+
+" Unite
+" =============================================================================
+" General
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_prompt='👉 '
+
+" File Search
+nnoremap <Leader>f :Unite file_rec/git:--cached:--others:--exclude-standard
+  \ -start-insert -auto-preview<CR>
+
+" Syntastic
+" =============================================================================
+let g:syntastic_javascript_checkers = ['eslint']
+
+" vim-jsx
+" =============================================================================
+" Use jsx highlighting in js files
+let g:jsx_ext_required = 0
+
+" Misc
+" =============================================================================
+" Disable arrow keys.
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" Window splits
+nmap <Leader>w :wincmd v<CR>
+nmap <Leader>W :wincmd s<CR>
+
+nmap <Leader>h :wincmd h<CR>
+nmap <Leader>j :wincmd j<CR>
+nmap <Leader>k :wincmd k<CR>
+nmap <Leader>l :wincmd l<CR>
+
+" Clear search result highlighting.
+nmap <Leader>n :nohlsearch<CR>
+
+" Theme
+" =============================================================================
+set t_Co=256
+set background=dark
+set term=xterm-256color
+colorscheme solarized
