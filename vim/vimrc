@@ -113,11 +113,12 @@ Plug 'bling/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/syntastic'
 Plug 'pmsorhaindo/syntastic-local-eslint.vim'
-Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
@@ -139,6 +140,8 @@ Plug 'tpope/vim-haml'
 " Themes
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -164,16 +167,10 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='tomorrow'
 
-" Unite
+" fzf
 " =============================================================================
-" General
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-let g:unite_prompt='👉 '
-
-" File Search
-nnoremap <Leader>f :Unite file_rec/git:--cached:--others:--exclude-standard
-  \ -start-insert -auto-preview<CR>
+nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>F :GFiles<CR>
 
 " Syntastic
 " =============================================================================
@@ -204,9 +201,10 @@ nmap <Leader>l :wincmd l<CR>
 " Clear search result highlighting.
 nmap <Leader>n :nohlsearch<CR>
 
+nmap <Leader>bg :set background=light<CR>
+
 " Theme
 " =============================================================================
-set t_Co=256
 set background=dark
-set term=xterm-256color
+" set term=xterm-256color
 colorscheme solarized
