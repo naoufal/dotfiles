@@ -6,20 +6,11 @@
 
 
 
-# Install Grunt
-npm i -g grunt-cli
-
-# Install Gulp
-npm i -g gulp
-
-# Install Browserify
-npm i -g browserify
+# Install Webpack
+npm i -g webpack
 
 # Install Mocha
 npm i -g mocha
 
-# Install Bower
-npm i -g bower
-
-# Install JSHint
-npm i -g jshint
+# Vim Markdown Live Preview
+npm -g install instant-markdown-d
